@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { Trans } from "@lingui/solid/macro";
 import { Show } from "solid-js";
 import { styled } from "styled-system/jsx";
@@ -47,7 +48,7 @@ function EmailPrivacyHint() {
           </Trans>
         </p>
         <a
-          href="https://stoat.chat/privacy"
+          href={brand.privacy}
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={-1} // redundant for kb nav -> another link in footer
@@ -101,7 +102,7 @@ export default function FlowCreate() {
       <FlowTitle
         subtitle={<Trans>Set up your account and make yourself at home.</Trans>}
       >
-        <Trans>Join Stoat</Trans>
+        <Trans>Join {brand.name}</Trans>
       </FlowTitle>
       <Form onSubmit={create} captcha={config.features.captcha.key}>
         <Fields

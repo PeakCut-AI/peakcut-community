@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { useNavigate } from "@solidjs/router";
 import { Match, Switch } from "solid-js";
 
@@ -45,7 +46,7 @@ export function Feedback() {
           </CategoryButton>
         </Link> */}
         <Link
-          href="https://github.com/orgs/stoatchat/discussions/categories/feature-suggestions"
+          href={brand.feedback}
           target="_blank"
         >
           <CategoryButton
@@ -53,14 +54,14 @@ export function Feedback() {
             icon={<MdStar {...iconSize(22)} />}
             ignoreClick
             description={
-              <Trans>Suggest new Stoat features on GitHub discussions.</Trans>
+              <Trans>Suggest improvements to {brand.name}.</Trans>
             }
           >
             <Trans>Submit feature suggestion</Trans>
           </CategoryButton>
         </Link>
         <Link
-          href="https://github.com/orgs/stoatchat/discussions/categories/feedback"
+          href={brand.feedback}
           target="_blank"
         >
           <CategoryButton
@@ -73,7 +74,7 @@ export function Feedback() {
           </CategoryButton>
         </Link>
         <Link
-          href="https://github.com/stoatchat/for-web/issues?q=is%3Aissue%20state%3Aopen%20type%3ABug"
+          href={brand.feedback}
           target="_blank"
         >
           <CategoryButton

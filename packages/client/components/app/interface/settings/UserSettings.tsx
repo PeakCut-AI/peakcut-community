@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { Show } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
@@ -223,7 +224,7 @@ const Config: SettingsConfiguration<{ server: Server }> = {
           ],
         },
         {
-          title: "Stoat",
+          title: brand.name,
           entries: [
             {
               id: "bots",
@@ -320,15 +321,13 @@ const Config: SettingsConfiguration<{ server: Server }> = {
           entries: [
             {
               onClick: async () => {
-                const changelog = await fetchLatestChangelog();
-                if (!changelog) return;
-                openModal({ type: "changelog", changelog });
+                window.open(brand.announcements);
               },
               icon: <MdCampaign {...iconSize(20)} />,
               title: <Trans>What's New</Trans>,
             },
             {
-              href: "https://github.com/stoatchat",
+              href: brand.source,
               icon: <MdMemory {...iconSize(20)} />,
               title: <Trans>Source Code</Trans>,
             },
@@ -338,9 +337,9 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               title: <Trans>Advanced</Trans>,
             },
             {
-              href: "https://ko-fi.com/stoatchat",
+              href: brand.home,
               icon: <MdCoffee {...iconSize(20)} />,
-              title: <Trans>Donate</Trans>,
+              title: <Trans>Visit {brand.name}</Trans>,
             },
             {
               id: "logout",

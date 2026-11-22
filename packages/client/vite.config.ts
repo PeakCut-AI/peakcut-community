@@ -53,6 +53,7 @@ export default defineConfig({
       strategies: "injectManifest",
       injectManifest: {
         maximumFileSizeToCacheInBytes: 8000000,
+        globIgnores: ["brand/config.js", "brand/analytics.js"],
         globPatterns: ["**/*.{js,css,html}", "**/material-symbols-*.woff2"],
       },
       devOptions: {
@@ -60,16 +61,16 @@ export default defineConfig({
         type: "module",
       },
       manifest: {
-        name: "Stoat",
-        short_name: "Stoat",
-        description: "User-first open source chat platform.",
+        name: "Peakcut Community",
+        short_name: "Peakcut Community",
+        description: "The Peakcut community for creators.",
         categories: ["communication", "chat", "messaging"],
         start_url: base,
         scope: pwaScope,
         display_override: ["window-controls-overlay"],
         display: "standalone",
-        background_color: "#101823",
-        theme_color: "#101823",
+        background_color: "#09090b",
+        theme_color: "#09090b",
         icons: [
           {
             src: `${base}assets/web/android-chrome-192x192.png`,

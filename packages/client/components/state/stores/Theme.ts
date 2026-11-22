@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { Accessor, createSignal } from "solid-js";
 
 import {
@@ -132,9 +133,9 @@ export class Theme extends AbstractStore<"theme", TypeTheme> {
   default(): TypeTheme {
     return {
       preset: "you",
-      mode: "system",
+      mode: "dark",
 
-      m3Accent: "#5470ec",
+      m3Accent: brand.accent,
       m3Contrast: 0.0,
       m3Variant: "tonal_spot",
 
@@ -169,7 +170,7 @@ export class Theme extends AbstractStore<"theme", TypeTheme> {
       input.m3Accent &&
       input.m3Accent.match(/#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})/)
     ) {
-      data.m3Accent = input.m3Accent;
+      data.m3Accent = input.m3Accent === "#5470ec" ? brand.accent : input.m3Accent;
     }
 
     if (

@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { Match, Show, Switch } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
@@ -26,9 +27,10 @@ import MdPayments from "@material-design-icons/svg/filled/payments.svg?component
 import MdRateReview from "@material-design-icons/svg/filled/rate_review.svg?component-solid";
 import MdSettings from "@material-design-icons/svg/filled/settings.svg?component-solid";
 
-import Wordmark from "../../public/assets/web/wordmark.svg?component-solid";
 
 import { HeaderIcon } from "./common/CommonHeader";
+
+const Wordmark = (props: { class?: string }) => <img {...props} src={brand.wordmark} alt={brand.name} />;
 
 /**
  * Base layout of the home page (i.e. the header/background)
@@ -124,20 +126,14 @@ export function HomePage() {
           <SeparatedColumn>
             <CategoryButton
               onClick={() =>
-                openModal({
-                  type: "create_group_or_server",
-                  client: client()!,
-                })
+                navigate(brand.communityPath)
               }
               description={
-                <Trans>
-                  Invite all of your friends, some cool bots, and throw a big
-                  party.
-                </Trans>
+                brand.description
               }
               icon={<MdAddCircle />}
             >
-              <Trans>Create a group or server</Trans>
+              <Trans>Open {brand.name} Community</Trans>
             </CategoryButton>
             <Switch fallback={null}>
               <Match when={showLoungeButton && isInLounge}>
@@ -178,13 +174,13 @@ export function HomePage() {
             </Switch>
             <CategoryButton
               variant="tertiary"
-              onClick={() => window.open("https://ko-fi.com/stoatchat")}
+              onClick={() => window.open(brand.home)}
               description={
-                <Trans>Support the project by donating - thank you!</Trans>
+                brand.tagline
               }
               icon={<MdPayments />}
             >
-              <Trans>Donate to Stoat</Trans>
+              <Trans>Visit {brand.name}</Trans>
             </CategoryButton>
           </SeparatedColumn>
           <SeparatedColumn>
@@ -203,11 +199,7 @@ export function HomePage() {
             </Show>
             <CategoryButton
               onClick={() =>
-                openModal({
-                  type: "settings",
-                  config: "user",
-                  context: { page: "feedback" },
-                })
+                window.open(brand.support)
               }
               description={
                 <Trans>
@@ -216,7 +208,7 @@ export function HomePage() {
               }
               icon={<MdRateReview {...iconSize(22)} />}
             >
-              <Trans>Give feedback on Stoat</Trans>
+              <Trans>Contact {brand.name}</Trans>
             </CategoryButton>
             <CategoryButton
               onClick={() => openModal({ type: "settings", config: "user" })}

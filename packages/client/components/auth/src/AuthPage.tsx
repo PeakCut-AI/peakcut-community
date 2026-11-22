@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import {
   createEffect,
   createMemo,
@@ -26,8 +27,7 @@ import { A, useLocation } from "@revolt/routing";
 import { useState } from "@revolt/state";
 import { IconButton, Symbol } from "@revolt/ui";
 
-import Wordmark from "../../../public/assets/web/wordmark.svg?component-solid";
-import { AppUpsell } from "./AppUpsell";
+
 import { BubbleMood, BubbleProvider, FlowBase, FlowBubble } from "./flows/Flow";
 
 import Bluesky from "./flows/bluesky.svg?component-solid";
@@ -504,11 +504,11 @@ export function AuthPage(props: { children: JSX.Element }) {
     <div use:scrollable={{ class: root }}>
       <Titlebar />
       <Page>
-        <Hero>
+        <Hero style={{ background: brand.background }}>
           <Brand aria-hidden="true">
-            <Wordmark />
+            <img src={brand.wordmark} alt={brand.name} style={{ width: "180px", height: "auto" }} />
           </Brand>
-          <AppUpsell />
+          <div style={{ "margin-top": "auto", "margin-bottom": "auto", "max-width": "36rem" }}><h1 style={{ color: brand.accent, "font-size": "clamp(32px, 4vw, 58px)", "line-height": "1.1" }}>{brand.tagline}</h1><p style={{ "font-size": "20px", "line-height": "1.6", color: "#9d9da6" }}>{brand.description}</p></div>
         </Hero>
 
         <Content>
@@ -532,7 +532,7 @@ export function AuthPage(props: { children: JSX.Element }) {
                   <Symbol size={24}>arrow_back</Symbol>
                 </IconButton>
               </Show>
-              <Wordmark />
+              <img src={brand.wordmark} alt={brand.name} style={{ width: "180px", height: "auto" }} />
             </Brand>
 
             <AccountSwitch>
@@ -541,7 +541,7 @@ export function AuthPage(props: { children: JSX.Element }) {
                 fallback={
                   <>
                     <span>
-                      <Trans>New to Stoat?</Trans>
+                      <Trans>New to {brand.name}?</Trans>
                     </span>
                     <A href="/login/create">
                       <Trans>Create account</Trans>
@@ -633,31 +633,19 @@ export function AuthPage(props: { children: JSX.Element }) {
 
           <Footer>
             <nav aria-label="Legal">
-              <a href="https://stoat.chat/terms" target="_blank">
+              <a href={brand.terms} target="_blank">
                 <Trans>Terms</Trans>
               </a>
-              <a href="https://stoat.chat/privacy" target="_blank">
+              <a href={brand.privacy} target="_blank">
                 <Trans>Privacy</Trans>
               </a>
-              <a href="https://support.stoat.chat/" target="_blank">
+              <a href={brand.support} target="_blank">
                 <Trans>Help</Trans>
               </a>
             </nav>
-            <Socials aria-label="Social links">
-              <a
-                href="https://github.com/stoatchat"
-                target="_blank"
-                aria-label="GitHub"
-              >
-                <GitHub width={20} height={20} />
-              </a>
-              <a
-                href="https://bsky.app/profile/stoat.chat"
-                target="_blank"
-                aria-label="Bluesky"
-              >
-                <Bluesky width={20} height={20} />
-              </a>
+            <Socials aria-label="Software attribution">
+              <a href={brand.home} target="_blank" rel="noopener noreferrer">{brand.name}</a>
+              <a href={brand.source} target="_blank" rel="noopener noreferrer">Powered by Stoat · Source</a>
             </Socials>
           </Footer>
         </Content>

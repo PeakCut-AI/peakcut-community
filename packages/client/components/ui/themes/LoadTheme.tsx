@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { createEffect, createMemo } from "solid-js";
 
 import { useClientLifecycle } from "@revolt/client";
@@ -50,6 +51,26 @@ export function LoadTheme() {
       ...createMaterialColourVariables(activeTheme, "--md-sys-color-"),
       // mount --mdui-color triplet variables
       ...createMduiColourTriplets(activeTheme, "--mdui-color-"),
+      ...(activeTheme.darkMode && activeTheme.accent === brand.accent ? {
+        "--md-sys-color-primary": brand.accent,
+        "--md-sys-color-on-primary": "#0c0e04",
+        "--md-sys-color-background": brand.background,
+        "--md-sys-color-on-background": "#f4f4f5",
+        "--md-sys-color-surface": brand.background,
+        "--md-sys-color-on-surface": "#f4f4f5",
+        "--md-sys-color-surface-dim": brand.background,
+        "--md-sys-color-surface-bright": "#18181b",
+        "--md-sys-color-surface-container-lowest": brand.background,
+        "--md-sys-color-surface-container-low": "#0f0f12",
+        "--md-sys-color-surface-container": "#141417",
+        "--md-sys-color-surface-container-high": "#1c1c20",
+        "--md-sys-color-surface-container-highest": "#26262b",
+        "--md-sys-color-surface-variant": "#26262b",
+        "--md-sys-color-on-surface-variant": "#b5b5be",
+        "--md-sys-color-secondary-container": "#282f17",
+        "--md-sys-color-on-secondary-container": "#e5f5b5",
+        "--md-sys-color-outline": "#73737c",
+      } : {}),
     };
   });
 
