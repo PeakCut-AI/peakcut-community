@@ -35,3 +35,6 @@ after login/onboarding. This uses the upstream discoverable-server join route.
 No paid roles are granted by joining. Existing members keep their current roles;
 backend bans and private-channel ACLs remain authoritative. The client routes a
 newly joined member straight to start-here, without an invite prompt.
+
+An incoming server invitation is preserved across first login: joining the main
+community does not override the regional invitation route.

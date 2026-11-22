@@ -283,7 +283,8 @@ class Lifecycle {
               .afterState()
               .then((joined) => {
                 this.#enter(State.Connected);
-                if (joined) this.#nav(brand.communityPath);
+                if (joined && !location.pathname.startsWith("/invite/"))
+                  this.#nav(brand.communityPath);
               })
               .catch((error) => this.showError(error));
           case TransitionType.NoUser:
@@ -308,7 +309,8 @@ class Lifecycle {
               .afterState()
               .then((joined) => {
                 this.#enter(State.Connected);
-                if (joined) this.#nav(brand.communityPath);
+                if (joined && !location.pathname.startsWith("/invite/"))
+                  this.#nav(brand.communityPath);
               })
               .catch((error) => this.showError(error));
           case TransitionType.TemporaryFailure:
