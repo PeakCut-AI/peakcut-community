@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
-const ts=require('typescript');
+const ts=require('../packages/client/node_modules/typescript');
 const source=ts.transpileModule(fs.readFileSync('packages/client/components/common/communityEntry.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const main='01M82F90WS722TDMWWYRMJHCPE',region='01M82M30BMB73YMB7ZGF9BE7CD',key='peakcut.requested-public-community.v1';
 async function run({pathname='/',saved,existing=[],deny,wrong=false}={}){

@@ -4,6 +4,7 @@
 set -euo pipefail
 python3 peakcut-branding/render_icons.py
 pnpm install --frozen-lockfile
+node scripts/check-community-entry.cjs
 pnpm --filter stoat.js build
 pnpm --filter solid-livekit-components build
 pnpm --filter client exec lingui compile --typescript
