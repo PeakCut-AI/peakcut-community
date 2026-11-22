@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { JSX, Show, createSignal, onCleanup, onMount } from "solid-js";
 import { styled } from "styled-system/jsx";
@@ -9,13 +10,13 @@ import { Button, CircularProgress, Symbol, Text } from "@revolt/ui";
 /**
  * Stoat status page URL
  */
-const STATUS_PAGE_URL = "https://status.stoat.chat";
+const STATUS_PAGE_URL = brand.home;
 
 /**
  * Connection troubleshooting knowledge base article
  */
 const TROUBLESHOOTING_URL =
-  "https://support.stoat.chat/kb/troubleshooting/connection-issues";
+  brand.support;
 
 /**
  * Status API queried when the client is slow to connect

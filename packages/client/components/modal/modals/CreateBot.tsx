@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { createFormControl, createFormGroup } from "solid-forms";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
@@ -59,7 +60,7 @@ export function CreateBotModal(
             <Trans>
               By creating this bot, you agree to the{" "}
               <a
-                href="https://stoat.chat/legal/community-guidelines"
+                href={brand.guidelines}
                 target="_blank"
                 rel="noreferrer"
                 style={{

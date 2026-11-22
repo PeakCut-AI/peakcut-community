@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { ErrorBoundary, For, Suspense } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
@@ -63,12 +64,12 @@ function CreateBot() {
       <CategoryButton
         action="external"
         icon={<MdLibraryBooks {...iconSize(22)} />}
-        onClick={() => window.open("https://developers.stoat.chat", "_blank")}
+        onClick={() => window.open(brand.source, "_blank")}
         description={
-          <Trans>Learn more about how to create bots on Stoat.</Trans>
+          <Trans>Explore the open-source software behind {brand.name}.</Trans>
         }
       >
-        <Trans>Developer Documentation</Trans>
+        <Trans>Community source code</Trans>
       </CategoryButton>
     </CategoryButton.Group>
   );

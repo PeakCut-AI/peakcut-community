@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { createFormControl, createFormGroup } from "solid-forms";
 import { QRCodeSVG } from "solid-qr-code";
 
@@ -50,7 +51,7 @@ export function MFAEnableTOTPModal(
    * Generate OTP URI
    */
   const uri = () =>
-    `otpauth://totp/Stoat:${props.identifier}?secret=${props.secret}&issuer=Stoat`;
+    `otpauth://totp/${encodeURIComponent(brand.name)}:${props.identifier}?secret=${props.secret}&issuer=${encodeURIComponent(brand.name)}`;
 
   async function onSubmit() {
     try {

@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { createFormControl, createFormGroup } from "solid-forms";
 import { Show, createMemo, createSignal } from "solid-js";
 
@@ -156,7 +157,7 @@ export function AddBotModal(props: DialogProps & Modals & { type: "add_bot" }) {
 
           <Column gap="sm" align>
             <Text class="label" size="small">
-              Bots are not verified by Stoat.
+              Bots are not verified by {brand.name}.
             </Text>
             <Text class="label" size="small">
               The bot will not be granted any permissions.

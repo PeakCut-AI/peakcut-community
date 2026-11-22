@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { Trans } from "@lingui/solid/macro";
 
 import { useApi } from "@revolt/client";
@@ -35,7 +36,7 @@ export default function FlowConfirmReset() {
   return (
     <>
       <FlowTitle
-        subtitle={<Trans>Choose a new password for your Stoat account.</Trans>}
+        subtitle={<Trans>Choose a new password for your {brand.name} account.</Trans>}
       >
         <Trans>Reset password</Trans>
       </FlowTitle>

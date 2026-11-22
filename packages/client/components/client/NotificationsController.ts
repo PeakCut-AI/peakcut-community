@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { useLingui } from "@lingui/solid/macro";
 
 import { Client } from "stoat.js";
@@ -25,7 +26,7 @@ export function useNotifications() {
     settings.resetNotificationsState("denied");
     if (showModal) {
       showError(
-        t`Failed to enable notifications. Stoat does not have notification permission.`,
+        t`Failed to enable notifications. ${brand.name} does not have notification permission.`,
       );
     }
     await killServiceWorkerSubscription(getClient());

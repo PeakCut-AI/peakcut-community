@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { For, createMemo } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
@@ -93,7 +94,7 @@ function RoleColourPicker(props: {
                     </ColouredText>
                   </PreviewUsername>
                   <PreviewBody>
-                    <Trans>Stoat rocks!</Trans>
+                    <Trans>{brand.name} rocks!</Trans>
                   </PreviewBody>
                 </PreviewMessageContent>
               </PreviewMessage>

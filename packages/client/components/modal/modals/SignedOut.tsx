@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { Trans } from "@lingui/solid/macro";
 
 import { Dialog, DialogProps } from "@revolt/ui";
@@ -15,7 +16,7 @@ export function SignedOutModal(
     <Dialog
       show={props.show}
       onClose={props.onClose}
-      title={<Trans>You've been signed out of Stoat!</Trans>}
+      title={<Trans>You've been signed out of {brand.name}!</Trans>}
       actions={[{ text: <Trans>OK</Trans> }]}
     >
       <></>

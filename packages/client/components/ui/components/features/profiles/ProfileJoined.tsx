@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { Show } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
@@ -19,7 +20,7 @@ export function ProfileJoined(props: { user: User; member?: ServerMember }) {
         <Trans>Joined</Trans>
       </Text>
       <Text class="label">
-        <OverflowingText>Stoat</OverflowingText>
+        <OverflowingText>{brand.name}</OverflowingText>
         {/* <Trans>Account Created</Trans> */}
       </Text>
       <Text>

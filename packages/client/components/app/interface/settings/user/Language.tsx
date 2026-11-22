@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { Trans, useLingui } from "@lingui/solid/macro";
 
 import { Language, Languages, browserPreferredLanguage } from "@revolt/i18n";
@@ -202,7 +203,7 @@ function PickTimeFormat() {
  */
 function ContributeLanguageLink() {
   return (
-    <a href="https://translate.stoat.chat/projects/revolt/" target="_blank">
+    <a href={brand.feedback} target="_blank">
       <CategoryButton
         action="external"
         icon={<MdTranslate {...iconSize(22)} />}

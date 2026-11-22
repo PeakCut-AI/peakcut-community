@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import { t } from "@lingui/core/macro";
 import { useNavigate } from "@solidjs/router";
 import { detect } from "detect-browser";
@@ -539,9 +540,9 @@ export default class ClientController {
         os = "iPadOS";
       }
 
-      friendly_name = `Stoat for Web (${name} on ${os})`;
+      friendly_name = `${brand.name} for Web (${name} on ${os})`;
     } else {
-      friendly_name = "Stoat for Web (Unknown Device)";
+      friendly_name = `${brand.name} for Web (Unknown Device)`;
     }
 
     // Try to login with given credentials

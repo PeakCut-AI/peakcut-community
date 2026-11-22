@@ -1,3 +1,4 @@
+import { brand } from "@revolt/common/brand";
 import {
   For,
   Match,
@@ -152,7 +153,7 @@ function GifboxExplainer() {
         <ExplainerBody>
           <Trans>
             Gifbox is our own GIF service, so you can keep sharing GIFs right
-            here on Stoat.
+            here on {brand.name}.
           </Trans>
         </ExplainerBody>
         <ExplainerActions>
