@@ -15,3 +15,15 @@ Backend remains upstream v0.16.5; mail is branded by a private SMTP adapter.
 Secrets and user data never belong in this repository.
 
 Modified by Peakcut contributors on 22 November 2026. The client remains licensed under AGPL-3.0-or-later. Original copyright notices are retained. The Software & licences page provides attribution, warranty and licence notices, and a download of the exact deployed source.
+
+## Build this version
+
+Use Node 24, pnpm 11.3.0, Python 3 and Pillow (`python3 -m pip install pillow`).
+For a Git checkout, first run `git submodule update --init` for the SDK and
+LiveKit components; the downloadable source archive already contains them.
+From the repository root run `bash peakcut-branding/build-client.sh`.
+The output is `packages/client/dist`. Set VITE_HOST, VITE_API_URL and
+VITE_DEV_GIFBOX_URL to your own service endpoints before building a separate
+deployment. No Peakcut server credentials or database are included.
+
+See TRADEMARKS.md for the separate Peakcut brand notice.
