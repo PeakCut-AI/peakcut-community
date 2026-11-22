@@ -1,4 +1,5 @@
 import { Trans } from "@lingui/solid/macro";
+import { brand } from "@revolt/common/brand";
 import { styled } from "styled-system/jsx";
 
 import { useTime } from "@revolt/i18n";
@@ -20,9 +21,12 @@ export interface ChangelogResponse {
   updated_at?: string;
 }
 
-const CHANGELOG_ENDPOINT = "https://changelog.stoat.chat/v1/changelogs/latest";
+const CHANGELOG_ENDPOINT = brand.changelog;
 
 export async function fetchLatestChangelog(): Promise<ChangelogResponse | null> {
+  // Self-hosted community releases are announced by our team. Never show an
+  // official-platform announcement that advertises unavailable features here.
+  if (!CHANGELOG_ENDPOINT) return null;
   try {
     const response = await fetch(CHANGELOG_ENDPOINT, {
       headers: { Accept: "application/json" },
