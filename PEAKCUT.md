@@ -27,3 +27,11 @@ VITE_DEV_GIFBOX_URL to your own service endpoints before building a separate
 deployment. No Peakcut server credentials or database are included.
 
 See TRADEMARKS.md for the separate Peakcut brand notice.
+
+## Public community entry
+
+Verified users are joined as ordinary members of the configured public community
+after login/onboarding. This uses the upstream discoverable-server join route.
+No paid roles are granted by joining. Existing members keep their current roles;
+backend bans and private-channel ACLs remain authoritative. The client routes a
+newly joined member straight to start-here, without an invite prompt.
