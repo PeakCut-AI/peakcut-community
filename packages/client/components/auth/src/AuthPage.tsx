@@ -645,7 +645,7 @@ export function AuthPage(props: { children: JSX.Element }) {
             </nav>
             <Socials aria-label="Software attribution">
               <a href={brand.home} target="_blank" rel="noopener noreferrer">{brand.name}</a>
-              <a href={brand.source} target="_blank" rel="noopener noreferrer">Powered by Stoat · Source</a>
+              <a href={brand.source} target="_blank" rel="noopener noreferrer">Software &amp; licences</a>
             </Socials>
           </Footer>
         </Content>

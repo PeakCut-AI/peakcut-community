@@ -13,4 +13,4 @@ Deployment/build/backup scripts live in PeakCut-AI/peakcut under infra/stoat.
 Backend remains upstream v0.16.5; mail is branded by a private SMTP adapter.
 Secrets and user data never belong in this repository.
 
-The original project licence and Powered by Stoat source attribution are retained.
+Modified by Peakcut contributors on 22 November 2026. The client remains licensed under AGPL-3.0-or-later. Original copyright notices are retained. The Software & licences page provides attribution, warranty and licence notices, and a download of the exact deployed source.
