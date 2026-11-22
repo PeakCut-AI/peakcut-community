@@ -1,8 +1,9 @@
 import { brand } from "@revolt/common/brand";
+import { prepareCommunityEntry } from "@revolt/common/communityEntry";
 import { t } from "@lingui/core/macro";
 import { useNavigate } from "@solidjs/router";
 import { detect } from "detect-browser";
-import { Accessor, Setter, batch, createMemo, createSignal } from "solid-js";
+import { Accessor, Setter, createMemo, createSignal } from "solid-js";
 
 import { API, Client, ConnectionState, ProtocolV1 } from "stoat.js";
 
@@ -281,10 +282,9 @@ class Lifecycle {
           case TransitionType.SocketConnected:
             return this.#controller
               .afterState()
-              .then((joined) => {
+              .then((landingPath) => {
                 this.#enter(State.Connected);
-                if (joined && !location.pathname.startsWith("/invite/"))
-                  this.#nav(brand.communityPath);
+                if (landingPath) this.#nav(landingPath);
               })
               .catch((error) => this.showError(error));
           case TransitionType.NoUser:
@@ -307,10 +307,9 @@ class Lifecycle {
           case TransitionType.SocketConnected:
             return this.#controller
               .afterState()
-              .then((joined) => {
+              .then((landingPath) => {
                 this.#enter(State.Connected);
-                if (joined && !location.pathname.startsWith("/invite/"))
-                  this.#nav(brand.communityPath);
+                if (landingPath) this.#nav(landingPath);
               })
               .catch((error) => this.showError(error));
           case TransitionType.TemporaryFailure:
@@ -522,21 +521,7 @@ export default class ClientController {
   /** Ensure state is done hydrating */
   async afterState() {
     await this.#waitState;
-    const client = this.instance.client;
-    const target = brand.communityServer;
-    if (!target || !client.user || client.servers.has(target)) return false;
-    // The public/discoverable server has a native join endpoint. This creates
-    // ordinary membership only; channel access remains enforced by backend roles.
-    const joined = await client.api.post(`/invites/${target as ""}`);
-    if (joined.type !== "Server" || joined.server._id !== target)
-      throw new Error("The public community could not be opened.");
-    batch(() => {
-      for (const channel of joined.channels)
-        client.channels.getOrCreate(channel._id, channel);
-      client.servers.getOrCreate(joined.server._id, joined.server, true);
-    });
-    this.state.layout.setLastActivePath(brand.communityPath);
-    return true;
+    return prepareCommunityEntry(this.instance.client, this.state.layout);
   }
 
   /**

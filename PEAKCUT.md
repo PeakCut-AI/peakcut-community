@@ -38,3 +38,8 @@ newly joined member straight to start-here, without an invite prompt.
 
 An incoming server invitation is preserved across first login: joining the main
 community does not override the regional invitation route.
+
+Explicit public-region invitations are preserved for up to one hour across
+registration/email verification tabs. Only region IDs in the public runtime
+allowlist are considered. Native joins enforce bans and permissions and grant
+ordinary membership only. Generic entry still opens the main community.

@@ -14,6 +14,7 @@
   "source": "/source/",
   "communityPath": "/server/01M82F90WS722TDMWWYRMJHCPE/channel/01M82FKKDVWAQSA5BPW29TB1WR",
   "communityServer": "01M82F90WS722TDMWWYRMJHCPE",
+  "regionalServers": ["01M82M30BMB73YMB7ZGF9BE7CD"],
   "feedback": "/server/01M82F90WS722TDMWWYRMJHCPE/channel/01M82FKVWK730QCNWAERVNZR99",
   "announcements": "/server/01M82F90WS722TDMWWYRMJHCPE/channel/01M82FKM61QN8G1KHRRSWB92ZS",
   "tagline": "Create, share, and grow with Peakcut.",

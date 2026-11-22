@@ -2,6 +2,7 @@
  * Configure contexts and render App
  */
 import "./sentry";
+import { brand } from "@revolt/common/brand";
 
 import { JSX, onMount } from "solid-js";
 import { render } from "solid-js/web";
@@ -80,6 +81,8 @@ function InviteRedirect() {
   const { openModal, showError } = useModals();
 
   onMount(() => {
+    if (params.code && brand.regionalServers?.includes(params.code) && client().servers.has(params.code))
+      return; // Public region was joined before the authenticated view mounted.
     if (params.code) {
       client()
         // TODO: add a helper to stoat.js for this
