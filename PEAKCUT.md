@@ -6,7 +6,8 @@ Branding is loaded at runtime from `/brand/config.js`; edit the public settings
 in `peakcut-branding/brand.json`. Logos and privacy-conscious community analytics
 are in the same directory. Community page analytics use G-WPZJCG70TH, with generic
 screen paths instead of chat IDs or verification/reset tokens. Do Not Track is
-respected. Do not enable enhanced measurement/history, form, or outbound-link
+respected. Analytics loads only after optional browser consent; choices are available
+on the community-specific privacy page. Do not enable enhanced measurement/history, form, or outbound-link
 capture for the community client.
 
 Deployment/build/backup scripts live in PeakCut-AI/peakcut under infra/stoat.
